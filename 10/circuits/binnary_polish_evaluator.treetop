@@ -1,0 +1,47 @@
+module Circuits
+  grammar BinnaryPolishEvaluator
+    rule operation
+      operator operand operand
+      {
+        def value
+          case operator.value
+          when "A"
+            operand1.value && operand2.value
+          when "O"
+            operand1.value || operand2.value
+          when "X"
+            !(operand1.value==operand2.value)
+          end
+        end
+      }
+      /
+      "N" operand
+      {
+        def value
+          !operand.value
+        end
+      }
+
+    end
+
+    rule operator
+      [AOX]
+      {
+        def value
+          text_value
+        end
+      }
+    end
+
+    rule operand
+      operation
+      /
+      [01]
+      {
+        def value
+          [false, true][text_value.to_i]
+        end
+      }
+    end
+  end
+end

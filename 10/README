@@ -1,0 +1,20 @@
+Lleïr Borràs Metje <lleir@llegeix.me>
+
+To execute the solution, first of all run
+$ bundle install
+
+to install necessary depencencies, like treetop.
+
+After that just run
+$ bundle exec ruby solve.rb circuits_file.txt
+
+where circuits_file.txt is the input data file.
+
+The result is saved at "result.txt" file and shown at the terminal.
+
+This solution was build on two parts, fist of all I
+convert the input circuit into a binnary polish string
+"A01" -> 0|1
+
+and after that, using treetop I parse that string and
+evaluate it to know even if the light is open or close.

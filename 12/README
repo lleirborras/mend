@@ -1,0 +1,23 @@
+Lleïr Borràs Metje <lleir@llegeix.me>
+
+To execute the solution, first of all run
+$ bundle install
+
+to install necessary depencencies, like raspell.
+
+After that just run
+$ bundle exec ruby solve.rb cipher_file.txt
+
+where cipher_file.txt is the input data file.
+
+The result is saved at "result.txt" file and shown at the terminal.
+
+This solution was build using raspell, a library to interact
+with aspell using ruby.
+
+Iterating all possible solutions of the keyword and checking
+if it generates a corect English word I build the keyword.
+
+Once I've got a valid keyword I try to translate the message
+using it, and if more than 85% of the words in the translated message
+are valid, then I consider it as a goot decryption.
